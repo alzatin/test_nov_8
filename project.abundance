@@ -48,8 +48,8 @@
         {
             "atomType": "Difference",
             "name": "Difference",
-            "x": 0.3955823293172691,
-            "y": 0.4956268221574344,
+            "x": 0.4365671641791045,
+            "y": 0.36443148688046645,
             "uniqueID": 1731355486619,
             "ioValues": [
                 {
@@ -66,13 +66,13 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.5904850746268656,
-            "y": 0.4081632653061224,
+            "x": 0.6632462686567164,
+            "y": 0.4518950437317784,
             "uniqueID": 1731358260429,
             "ioValues": [
                 {
                     "name": "input1",
-                    "ioValue": 1731355486619
+                    "ioValue": 1731358701680
                 },
                 {
                     "name": "height",
@@ -81,7 +81,44 @@
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\n\n return { geometry: [shape.sketchOnPlane(newPlane)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\n\nconsole.log(shape.sketchOnPlane(newPlane))\n\n return { geometry: [shape.sketchOnPlane(newPlane).extrude(5)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane,\n      bom:[]}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+        },
+        {
+            "atomType": "Join",
+            "name": "Fusion",
+            "x": 0.49906716417910446,
+            "y": 0.6501457725947521,
+            "uniqueID": 1731358701680,
+            "ioValues": [
+                {
+                    "name": "Shape 1",
+                    "ioValue": 1731358704353
+                },
+                {
+                    "name": "Shape 2",
+                    "ioValue": 1731355486619
+                }
+            ],
+            "description": "Pick between assembly and fusion to join input geometries. Assembly takes multiple shapes together into one, shapes higher in the inputs list will cut into shapes lower on the input list where they overlap. Fusion takes all shapes or sketches and fuses them permanently into a single shape",
+            "unionType": "Fusion"
+        },
+        {
+            "atomType": "Rectangle",
+            "name": "Rectangle",
+            "x": 0.38712686567164184,
+            "y": 0.80466472303207,
+            "uniqueID": 1731358704353,
+            "ioValues": [
+                {
+                    "name": "x length",
+                    "ioValue": 2
+                },
+                {
+                    "name": "y length",
+                    "ioValue": 2
+                }
+            ],
+            "description": "Creates a new rectangle."
         }
     ],
     "allConnectors": [
@@ -101,10 +138,24 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "input1",
+            "ap2Name": "Shape 2",
             "ap2Primary": false,
             "ap1ID": 1731355486619,
+            "ap2ID": 1731358701680
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "input1",
+            "ap2Primary": false,
+            "ap1ID": 1731358701680,
             "ap2ID": 1731358260429
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "Shape 1",
+            "ap2Primary": false,
+            "ap1ID": 1731358704353,
+            "ap2ID": 1731358701680
         }
     ],
     "unitsKey": "Inches",
