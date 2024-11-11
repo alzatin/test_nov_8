@@ -18,128 +18,6 @@
             "description": "Connect geometry here to make it available in the next level up. "
         },
         {
-            "atomType": "GitHubMolecule",
-            "name": "2D-offset-",
-            "x": 0.5615796519410977,
-            "y": 0.6064139941690962,
-            "uniqueID": 1731355333117,
-            "ioValues": [
-                {
-                    "name": "shape",
-                    "ioValue": 10
-                },
-                {
-                    "name": "offset",
-                    "ioValue": 10
-                }
-            ],
-            "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
-            "topLevel": false,
-            "allAtoms": [
-                {
-                    "atomType": "Output",
-                    "name": "Output",
-                    "x": 0.98,
-                    "y": 0.5,
-                    "uniqueID": 1731355333491,
-                    "ioValues": [
-                        {
-                            "name": "number or geometry",
-                            "ioValue": 1731355333990
-                        }
-                    ],
-                    "description": "Connect geometry here to make it available in the next level up. "
-                },
-                {
-                    "atomType": "Code",
-                    "name": "Code",
-                    "x": 0.5153105861767279,
-                    "y": 0.5131195335276968,
-                    "uniqueID": 1731355333990,
-                    "ioValues": [
-                        {
-                            "name": "input1",
-                            "ioValue": 1731355486619
-                        },
-                        {
-                            "name": "offset",
-                            "ioValue": 1
-                        }
-                    ],
-                    "description": "Defines a Replicad code block.",
-                    "codeVersion": 1,
-                    "code": "//Inputs:[input1, offset];\n\n\n\nlet shape = library[input1].geometry[0]\nconsole.log(shape)\n\nconst newPlane = new Plane().pivot(0, 'Y');\n\n return { geometry: [shape.offset(offset)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane,\n      bom:[]}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
-                },
-                {
-                    "atomType": "Input",
-                    "name": "shape",
-                    "x": 0.04,
-                    "y": 0.42857142857142855,
-                    "uniqueID": 1731355333538,
-                    "ioValues": [],
-                    "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
-                    "type": "number"
-                },
-                {
-                    "atomType": "Input",
-                    "name": "offset",
-                    "x": 0.04,
-                    "y": 0.7492711370262392,
-                    "uniqueID": 1731355333672,
-                    "ioValues": [],
-                    "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
-                    "type": "number"
-                }
-            ],
-            "allConnectors": [
-                {
-                    "ap1Name": "geometry",
-                    "ap2Name": "number or geometry",
-                    "ap2Primary": false,
-                    "ap1ID": 1731355333990,
-                    "ap2ID": 1731355333491
-                },
-                {
-                    "ap1Name": "number or geometry",
-                    "ap2Name": "input1",
-                    "ap2Primary": false,
-                    "ap1ID": 1731355333538,
-                    "ap2ID": 1731355333990
-                },
-                {
-                    "ap1Name": "number or geometry",
-                    "ap2Name": "offset",
-                    "ap2Primary": false,
-                    "ap1ID": 1731355333672,
-                    "ap2ID": 1731355333990
-                }
-            ],
-            "parentRepo": {
-                "repoName": "2D-offset-",
-                "dateCreated": "2024-11-11T19:46:47Z",
-                "readMe": "https://raw.githubusercontent.com/alzatin/2D-offset-/master/README.md?sanitize=true",
-                "yyyy": 2024,
-                "topMoleculeID": 1731354406588,
-                "topics": [
-                    "abundance-tool"
-                ],
-                "githubMoleculesUsed": [],
-                "html_url": "https://github.com/alzatin/2D-offset-",
-                "parentRepo": null,
-                "forks": 0,
-                "dateModified": "11/11/2024",
-                "ranking": 0,
-                "searchField": "2d-offset- alzatin takes a sketch and offsets it by a value abundance-tool",
-                "owner": "alzatin",
-                "description": "takes a sketch and offsets it by a value",
-                "svgURL": "https://raw.githubusercontent.com/alzatin/2D-offset-/master/project.svg?sanitize=true",
-                "contentURL": "https://raw.githubusercontent.com/alzatin/2D-offset-/master/project.abundance?sanitize=true"
-            },
-            "unitsKey": "Inches",
-            "fileTypeVersion": 1,
-            "compiledBom": []
-        },
-        {
             "atomType": "Circle",
             "name": "Circle",
             "x": 0.2315930388219545,
@@ -184,6 +62,26 @@
                 }
             ],
             "description": "Subtracts shape two from shape one."
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.5904850746268656,
+            "y": 0.4081632653061224,
+            "uniqueID": 1731358260429,
+            "ioValues": [
+                {
+                    "name": "input1",
+                    "ioValue": 1731355486619
+                },
+                {
+                    "name": "height",
+                    "ioValue": 10
+                }
+            ],
+            "description": "Defines a Replicad code block.",
+            "codeVersion": 1,
+            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\n\n return { geometry: [shape.sketchOnPlane(newPlane)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
         }
     ],
     "allConnectors": [
@@ -203,10 +101,10 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "shape",
+            "ap2Name": "input1",
             "ap2Primary": false,
             "ap1ID": 1731355486619,
-            "ap2ID": 1731355333117
+            "ap2ID": 1731358260429
         }
     ],
     "unitsKey": "Inches",
