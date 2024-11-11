@@ -45,7 +45,7 @@
             "ioValues": [
                 {
                     "name": "diameter",
-                    "ioValue": 7
+                    "ioValue": 3
                 }
             ],
             "description": "Creates a new circle."
@@ -53,13 +53,13 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.6819029850746269,
-            "y": 0.47521865889212833,
+            "x": 0.6623134328358209,
+            "y": 0.5976676384839651,
             "uniqueID": 1731358260429,
             "ioValues": [
                 {
                     "name": "input1",
-                    "ioValue": 1731358704353
+                    "ioValue": 1731359656260
                 },
                 {
                     "name": "height",
@@ -68,34 +68,52 @@
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\n\nlet wire = shape.sketchOnPlane(newPlane).wires().offset2D(-0.1)\nlet newSketch = new Sketch(wire)\n\n return { geometry: [newSketch.extrude(1)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane,\n      bom:[]}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\nconsole.log(shape.sketchOnPlane(newPlane))\n\nlet wire = shape.sketchOnPlane(newPlane).sketches[0].wires().offset2D(-0.1)\nlet newSketch = new Sketch(wire)\n\n return { geometry: [newSketch.extrude(1)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane,\n      bom:[]}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
         },
         {
             "atomType": "Rectangle",
             "name": "Rectangle",
-            "x": 0.42350746268656714,
-            "y": 0.2857142857142857,
+            "x": 0.33955223880597013,
+            "y": 0.29154518950437314,
             "uniqueID": 1731358704353,
             "ioValues": [
                 {
                     "name": "x length",
-                    "ioValue": 2
+                    "ioValue": 5
                 },
                 {
                     "name": "y length",
-                    "ioValue": 2
+                    "ioValue": 5
                 }
             ],
             "description": "Creates a new rectangle."
+        },
+        {
+            "atomType": "Difference",
+            "name": "Difference",
+            "x": 0.4729477611940298,
+            "y": 0.5743440233236151,
+            "uniqueID": 1731359656260,
+            "ioValues": [
+                {
+                    "name": "geometry2",
+                    "ioValue": 1731355475615
+                },
+                {
+                    "name": "geometry1",
+                    "ioValue": 1731358704353
+                }
+            ],
+            "description": "Subtracts shape two from shape one."
         }
     ],
     "allConnectors": [
         {
             "ap1Name": "geometry",
-            "ap2Name": "input1",
+            "ap2Name": "geometry2",
             "ap2Primary": false,
-            "ap1ID": 1731358704353,
-            "ap2ID": 1731358260429
+            "ap1ID": 1731355475615,
+            "ap2ID": 1731359656260
         },
         {
             "ap1Name": "geometry",
@@ -103,6 +121,20 @@
             "ap2Primary": false,
             "ap1ID": 1731358704353,
             "ap2ID": 1731355302733
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 1731358704353,
+            "ap2ID": 1731359656260
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "input1",
+            "ap2Primary": false,
+            "ap1ID": 1731359656260,
+            "ap2ID": 1731358260429
         }
     ],
     "unitsKey": "Inches",
