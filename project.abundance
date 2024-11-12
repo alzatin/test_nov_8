@@ -51,26 +51,6 @@
             "description": "Creates a new circle."
         },
         {
-            "atomType": "Code",
-            "name": "Code",
-            "x": 0.6660447761194029,
-            "y": 0.6005830903790088,
-            "uniqueID": 1731358260429,
-            "ioValues": [
-                {
-                    "name": "input1",
-                    "ioValue": 1731359656260
-                },
-                {
-                    "name": "height",
-                    "ioValue": 10
-                }
-            ],
-            "description": "Defines a Replicad code block.",
-            "codeVersion": 1,
-            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\n\nconsole.log(shape.sketchOnPlane(newPlane).sketches[0].wires.wires)\nlet wire = shape.sketchOnPlane(newPlane).sketches[0].wires.wires.forEach((item){return item.offset2D(-0.1)})\nlet newSketch = new Sketch(wire)\n\n return { geometry: [newSketch.extrude(1)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane,\n      bom:[]}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
-        },
-        {
             "atomType": "Rectangle",
             "name": "Rectangle",
             "x": 0.33955223880597013,
@@ -91,8 +71,8 @@
         {
             "atomType": "Difference",
             "name": "Difference",
-            "x": 0.47667910447761197,
-            "y": 0.5830903790087463,
+            "x": 0.6520522388059701,
+            "y": 0.5685131195335277,
             "uniqueID": 1731359656260,
             "ioValues": [
                 {
@@ -101,13 +81,100 @@
                 },
                 {
                     "name": "geometry1",
-                    "ioValue": 1731358704353
+                    "ioValue": 1731380375316
                 }
             ],
             "description": "Subtracts shape two from shape one."
+        },
+        {
+            "atomType": "Move",
+            "name": "Move",
+            "x": 0.41138059701492535,
+            "y": 0.4314868804664723,
+            "uniqueID": 1731380327791,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1731358704353
+                },
+                {
+                    "name": "xDist",
+                    "ioValue": 10
+                },
+                {
+                    "name": "yDist",
+                    "ioValue": 0
+                },
+                {
+                    "name": "zDist",
+                    "ioValue": 0
+                }
+            ],
+            "description": "Moves a shape laterally in X, Y, Z."
+        },
+        {
+            "atomType": "ShrinkWrap",
+            "name": "Shrink Wrap",
+            "x": 0.5279850746268657,
+            "y": 0.5306122448979592,
+            "uniqueID": 1731380375316,
+            "ioValues": [
+                {
+                    "name": "Shape 1",
+                    "ioValue": 1731380327791
+                },
+                {
+                    "name": "Shape 2",
+                    "ioValue": 1731355337415
+                },
+                {
+                    "name": "Shape 3",
+                    "ioValue": ""
+                },
+                {
+                    "name": "Shape 1",
+                    "ioValue": 1731380327791
+                },
+                {
+                    "name": "Shape 2",
+                    "ioValue": 1731355337415
+                },
+                {
+                    "name": "Shape 3",
+                    "ioValue": ""
+                }
+            ],
+            "description": "Joins two or more drawings into a single sketch by filling in the space between them. Also called 'hull'"
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.7863805970149255,
+            "y": 0.7259475218658892,
+            "uniqueID": 1731380391572,
+            "ioValues": [
+                {
+                    "name": "input1",
+                    "ioValue": 1731359656260
+                },
+                {
+                    "name": "height",
+                    "ioValue": 10
+                }
+            ],
+            "description": "Defines a Replicad code block.",
+            "codeVersion": 1,
+            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\nconsole.log(shape)\n\n return { geometry: [shape], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
         }
     ],
     "allConnectors": [
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "Shape 2",
+            "ap2Primary": false,
+            "ap1ID": 1731355337415,
+            "ap2ID": 1731380375316
+        },
         {
             "ap1Name": "geometry",
             "ap2Name": "geometry2",
@@ -124,17 +191,31 @@
         },
         {
             "ap1Name": "geometry",
-            "ap2Name": "geometry1",
-            "ap2Primary": false,
+            "ap2Name": "geometry",
+            "ap2Primary": true,
             "ap1ID": 1731358704353,
-            "ap2ID": 1731359656260
+            "ap2ID": 1731380327791
         },
         {
             "ap1Name": "geometry",
             "ap2Name": "input1",
             "ap2Primary": false,
             "ap1ID": 1731359656260,
-            "ap2ID": 1731358260429
+            "ap2ID": 1731380391572
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "Shape 1",
+            "ap2Primary": false,
+            "ap1ID": 1731380327791,
+            "ap2ID": 1731380375316
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "geometry1",
+            "ap2Primary": false,
+            "ap1ID": 1731380375316,
+            "ap2ID": 1731359656260
         }
     ],
     "unitsKey": "Inches",
