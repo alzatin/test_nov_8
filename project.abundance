@@ -53,8 +53,8 @@
         {
             "atomType": "Code",
             "name": "Code",
-            "x": 0.6623134328358209,
-            "y": 0.5976676384839651,
+            "x": 0.6660447761194029,
+            "y": 0.6005830903790088,
             "uniqueID": 1731358260429,
             "ioValues": [
                 {
@@ -68,7 +68,7 @@
             ],
             "description": "Defines a Replicad code block.",
             "codeVersion": 1,
-            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\nconsole.log(shape.sketchOnPlane(newPlane))\n\nlet wire = shape.sketchOnPlane(newPlane).sketches[0].wires().offset2D(-0.1)\nlet newSketch = new Sketch(wire)\n\n return { geometry: [newSketch.extrude(1)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane,\n      bom:[]}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
+            "code": "//Inputs:[input1, height];\n\nlet shape = library[input1].geometry[0]\n\nconst newPlane = new Plane().pivot(0, 'Y');\n\nconsole.log(shape.sketchOnPlane(newPlane)\nlet wire = shape.sketchOnPlane(newPlane).sketches.wires().offset2D(-0.1)\nlet newSketch = new Sketch(wire)\n\n return { geometry: [newSketch.extrude(1)], tags: [],\n      color: '#A3CE5B',\n      plane: newPlane,\n      bom:[]}\n\n\n    /**\n    To Use the Code Atom, enter your inputs to the input list a.e Inputs:[shape, height]\n    If your input is connected to another atom with a replicad geometry you can access its geometry by looking up its ID in your library. a.e library[Input1].geometry[0] \n    Use any replicad available methods to modify your geometry. Learn more about all of the available methods at \n    https://replicad.xyz/docs/introapp/UserGuide.html \n    Return a replicad object that includes geometry, color, tags and plane. \n\n\n    Example Code Atom:\n\n      Inputs:[shape, x];\n\n      let finalShape = library[shape].geometry[0].clone.translate[x,0,0]\n\n      return {geometry: finalShape, color: library[shape].color, plane: library[shape].plane, tags: library[shape].tags }\n\n      - See more examples at _______ \n\n\n    */\n"
         },
         {
             "atomType": "Rectangle",
@@ -91,8 +91,8 @@
         {
             "atomType": "Difference",
             "name": "Difference",
-            "x": 0.4729477611940298,
-            "y": 0.5743440233236151,
+            "x": 0.47667910447761197,
+            "y": 0.5830903790087463,
             "uniqueID": 1731359656260,
             "ioValues": [
                 {
