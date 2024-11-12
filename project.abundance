@@ -149,9 +149,9 @@
         {
             "atomType": "GitHubMolecule",
             "name": "2D-offset-",
-            "x": 0.6333955223880597,
-            "y": 0.6997084548104956,
-            "uniqueID": 1731382587963,
+            "x": 0.6283687943262412,
+            "y": 0.6793002915451896,
+            "uniqueID": 1731383000865,
             "ioValues": [
                 {
                     "name": "shape",
@@ -159,7 +159,7 @@
                 },
                 {
                     "name": "offset",
-                    "ioValue": 0.19
+                    "ioValue": 0.1
                 }
             ],
             "description": "Molecules provide an organizational structure to contain atoms. Double click on a molecule to enter it. Use the up arrow in the upper right hand corner of the screen to go up one level.",
@@ -170,11 +170,11 @@
                     "name": "Output",
                     "x": 0.98,
                     "y": 0.5,
-                    "uniqueID": 1731382588294,
+                    "uniqueID": 1731383001066,
                     "ioValues": [
                         {
                             "name": "number or geometry",
-                            "ioValue": 1731382588012
+                            "ioValue": 1731383001191
                         }
                     ],
                     "description": "Connect geometry here to make it available in the next level up. "
@@ -184,7 +184,7 @@
                     "name": "shape",
                     "x": 0.04,
                     "y": 0.42857142857142855,
-                    "uniqueID": 1731382588318,
+                    "uniqueID": 1731383000366,
                     "ioValues": [],
                     "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
                     "type": "number"
@@ -194,7 +194,7 @@
                     "name": "offset",
                     "x": 0.04,
                     "y": 0.7492711370262392,
-                    "uniqueID": 1731382588043,
+                    "uniqueID": 1731383001077,
                     "ioValues": [],
                     "description": "Adds an input to the parent molecule. If the parent molecule is the top level of the project then the input will be available when the project is shared or imported into another project. Name is editable",
                     "type": "number"
@@ -202,9 +202,9 @@
                 {
                     "atomType": "Circle",
                     "name": "Circle",
-                    "x": 0.37747205503009457,
-                    "y": 0.29154518950437314,
-                    "uniqueID": 1731382588757,
+                    "x": 0.3304964539007092,
+                    "y": 0.2623906705539359,
+                    "uniqueID": 1731383000721,
                     "ioValues": [
                         {
                             "name": "diameter",
@@ -216,9 +216,9 @@
                 {
                     "atomType": "Code",
                     "name": "Code",
-                    "x": 0.4860074626865672,
-                    "y": 0.7376093294460642,
-                    "uniqueID": 1731382588000,
+                    "x": 0.4916044776119403,
+                    "y": 0.7201166180758019,
+                    "uniqueID": 1731383000611,
                     "ioValues": [
                         {
                             "name": "input1",
@@ -226,7 +226,7 @@
                         },
                         {
                             "name": "offset",
-                            "ioValue": 0.19
+                            "ioValue": 0.1
                         }
                     ],
                     "description": "Defines a Replicad code block.",
@@ -236,9 +236,9 @@
                 {
                     "atomType": "Code",
                     "name": "Code",
-                    "x": 0.480410447761194,
-                    "y": 0.4985422740524781,
-                    "uniqueID": 1731382588279,
+                    "x": 0.49645390070921985,
+                    "y": 0.4081632653061224,
+                    "uniqueID": 1731383000738,
                     "ioValues": [
                         {
                             "name": "input1",
@@ -246,7 +246,7 @@
                         },
                         {
                             "name": "offset",
-                            "ioValue": 0.19
+                            "ioValue": 0.1
                         }
                     ],
                     "description": "Defines a Replicad code block.",
@@ -255,22 +255,41 @@
                 },
                 {
                     "atomType": "Join",
-                    "name": "Assembly",
-                    "x": 0.7145522388059701,
-                    "y": 0.5481049562682215,
-                    "uniqueID": 1731382588012,
+                    "name": "Fusion",
+                    "x": 0.6326241134751773,
+                    "y": 0.7784256559766763,
+                    "uniqueID": 1731383001117,
                     "ioValues": [
                         {
                             "name": "Shape 2",
-                            "ioValue": 1731382588279
+                            "ioValue": 1731383000738
                         },
                         {
                             "name": "Shape 3",
-                            "ioValue": 1731382588000
+                            "ioValue": 1731383000611
                         }
                     ],
                     "description": "Pick between assembly and fusion to join input geometries. Assembly takes multiple shapes together into one, shapes higher in the inputs list will cut into shapes lower on the input list where they overlap. Fusion takes all shapes or sketches and fuses them permanently into a single shape",
-                    "unionType": "Assembly"
+                    "unionType": "Fusion"
+                },
+                {
+                    "atomType": "Join",
+                    "name": "Fusion",
+                    "x": 0.7680851063829787,
+                    "y": 0.36151603498542273,
+                    "uniqueID": 1731383001191,
+                    "ioValues": [
+                        {
+                            "name": "Shape 1",
+                            "ioValue": 1731359656260
+                        },
+                        {
+                            "name": "Shape 2",
+                            "ioValue": 1731383001117
+                        }
+                    ],
+                    "description": "Pick between assembly and fusion to join input geometries. Assembly takes multiple shapes together into one, shapes higher in the inputs list will cut into shapes lower on the input list where they overlap. Fusion takes all shapes or sketches and fuses them permanently into a single shape",
+                    "unionType": "Fusion"
                 }
             ],
             "allConnectors": [
@@ -278,50 +297,64 @@
                     "ap1Name": "number or geometry",
                     "ap2Name": "input1",
                     "ap2Primary": false,
-                    "ap1ID": 1731382588318,
-                    "ap2ID": 1731382588279
+                    "ap1ID": 1731383000366,
+                    "ap2ID": 1731383000738
                 },
                 {
                     "ap1Name": "number or geometry",
                     "ap2Name": "input1",
                     "ap2Primary": false,
-                    "ap1ID": 1731382588318,
-                    "ap2ID": 1731382588000
+                    "ap1ID": 1731383000366,
+                    "ap2ID": 1731383000611
+                },
+                {
+                    "ap1Name": "number or geometry",
+                    "ap2Name": "Shape 1",
+                    "ap2Primary": false,
+                    "ap1ID": 1731383000366,
+                    "ap2ID": 1731383001191
                 },
                 {
                     "ap1Name": "number or geometry",
                     "ap2Name": "offset",
                     "ap2Primary": false,
-                    "ap1ID": 1731382588043,
-                    "ap2ID": 1731382588279
+                    "ap1ID": 1731383001077,
+                    "ap2ID": 1731383000738
                 },
                 {
                     "ap1Name": "number or geometry",
                     "ap2Name": "offset",
                     "ap2Primary": false,
-                    "ap1ID": 1731382588043,
-                    "ap2ID": 1731382588000
+                    "ap1ID": 1731383001077,
+                    "ap2ID": 1731383000611
                 },
                 {
                     "ap1Name": "geometry",
                     "ap2Name": "Shape 3",
                     "ap2Primary": false,
-                    "ap1ID": 1731382588000,
-                    "ap2ID": 1731382588012
+                    "ap1ID": 1731383000611,
+                    "ap2ID": 1731383001117
                 },
                 {
                     "ap1Name": "geometry",
                     "ap2Name": "Shape 2",
                     "ap2Primary": false,
-                    "ap1ID": 1731382588279,
-                    "ap2ID": 1731382588012
+                    "ap1ID": 1731383000738,
+                    "ap2ID": 1731383001117
+                },
+                {
+                    "ap1Name": "geometry",
+                    "ap2Name": "Shape 2",
+                    "ap2Primary": false,
+                    "ap1ID": 1731383001117,
+                    "ap2ID": 1731383001191
                 },
                 {
                     "ap1Name": "geometry",
                     "ap2Name": "number or geometry",
                     "ap2Primary": false,
-                    "ap1ID": 1731382588012,
-                    "ap2ID": 1731382588294
+                    "ap1ID": 1731383001191,
+                    "ap2ID": 1731383001066
                 }
             ],
             "parentRepo": {
@@ -348,6 +381,24 @@
             "unitsKey": "Inches",
             "fileTypeVersion": 1,
             "compiledBom": []
+        },
+        {
+            "atomType": "Extrude",
+            "name": "Extrude",
+            "x": 0.7539007092198582,
+            "y": 0.7725947521865889,
+            "uniqueID": 1731383040227,
+            "ioValues": [
+                {
+                    "name": "geometry",
+                    "ioValue": 1731383000865
+                },
+                {
+                    "name": "height",
+                    "ioValue": 1
+                }
+            ],
+            "description": "Extrudes a 2D shape. Input can be negitive. "
         }
     ],
     "allConnectors": [
@@ -384,7 +435,7 @@
             "ap2Name": "shape",
             "ap2Primary": false,
             "ap1ID": 1731359656260,
-            "ap2ID": 1731382587963
+            "ap2ID": 1731383000865
         },
         {
             "ap1Name": "geometry",
@@ -399,6 +450,13 @@
             "ap2Primary": false,
             "ap1ID": 1731380375316,
             "ap2ID": 1731359656260
+        },
+        {
+            "ap1Name": "Geometry",
+            "ap2Name": "geometry",
+            "ap2Primary": true,
+            "ap1ID": 1731383000865,
+            "ap2ID": 1731383040227
         }
     ],
     "unitsKey": "Inches",
